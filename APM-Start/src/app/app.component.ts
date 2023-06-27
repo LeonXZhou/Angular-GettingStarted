@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChange, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'pm-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular: Getting Started';
+  title = `Leon's Amazing Product Management App`;
+  public ngOnInit() {
+    this.title = 'woops';
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes);
+    this.title = `fee fie foo`;
+  }
 }
